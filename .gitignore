@@ -1,0 +1,54 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+*.tmp
+*.temp
+*.bak
+~$*
+
+# Build / generated output
+build/
+dist/
+out/
+outputs/
+node_modules/
+__pycache__/
+*.pyc
+*.pyo
+
+# Logs and caches
+*.log
+*.cache
+*.db
+*.ldb
+
+# Confidential / non-source documents
+*.pdf
+*.xlsx
+*.xlsm
+*.xls
+*.docx
+*.pptx
+*.dwg
+*.dxf
+*.sldprt
+*.sldasm
+*.step
+*.stp
+
+# Local secrets / credentials
+.env
+.env.*
+*password*
+*secret*
+*private*
+secrets/
+private/
+
+# Large installers and archives
+*.exe
+*.msi
+*.zip
+*.7z
+*.rar
+
