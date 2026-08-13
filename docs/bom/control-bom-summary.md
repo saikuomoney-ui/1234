@@ -12,6 +12,18 @@ This is a sanitized engineering BOM summary for source control. It intentionally
 | Ethernet switch | Advantech | EKI-2525-BE | 1 | 5-port industrial Ethernet switch. |
 | 24 VDC power supply | MEAN WELL | NDR-240-24 | 1 | 24 VDC, 10 A. |
 
+## Safety Control
+
+Safety parts are not finalized. Add this section before purchasing.
+
+| Item | Brand | Model | Qty | Status |
+|---|---|---|---:|---|
+| Safety relay or safety controller | TBD | TBD | TBD | Required. |
+| Dual-channel E-stop devices | TBD | TBD | TBD | Required. |
+| Guard door / interlock switch | TBD | TBD | TBD | Confirm requirement. |
+| Reset push button / feedback circuit | TBD | TBD | TBD | Required. |
+| Servo STO wiring accessories | TBD | TBD | TBD | Required if STO is used. |
+
 ## Servo System
 
 | Axis | Amplifier | Motor | Brake | Qty | Notes |
@@ -39,21 +51,21 @@ This is a sanitized engineering BOM summary for source control. It intentionally
 | Item | Brand | Model | Qty | Notes |
 |---|---|---:|---:|---|
 | Main earth leakage breaker | Shihlin | NV30-SN 3P30A delayed switching type | 1 | Main protection. |
-| Servo branch breaker | Shihlin | BHA33C5 | 4 | BOM currently lists 4 pcs. Check whether 100 W axes can use 4 A instead of 5 A. |
+| Servo branch breaker | Shihlin | BHA33C5 | 4 | Provisional only. Coordinate with MR-J4-10B / MR-J4-20B recommendation, input current, inrush, wire size, and protection design. |
 | 24 V power branch breaker | Shihlin | BHA32C4 | 1 | Recommended for 24 VDC power supply input. |
 | Auxiliary branch breaker | Shihlin | BHA32C10 | 1 | Confirm actual load assignment. |
 | Contactor | Shihlin | S-P09S AC220V 1a | 4 | For servo main power contactor branches. Requires relay or isolated contact control. |
 | External breaker handle | Shihlin | EH100N 3P/4P | 1 | Confirm mechanical panel fit. |
-| Fuse holder | TEND | TFBR-101 | 4 | 24 VDC branch fusing. |
-| Fuse indicator cover | TEND | TFB-101N DC | 4 | 24 VDC branch fusing. |
-| Fuse | TEND | TFU-30-3A | 4 | Confirm branch allocation. |
+| Fuse holder | TEND | TFBR-101 | 4 | Not final. Quantity must match final FU branch count. |
+| Fuse indicator cover | TEND | TFB-101N DC | 4 | Not final. Quantity must match final FU branch count. |
+| Fuse | TEND | TFU-30-3A | 4 | Not final. Fuse ratings must be split by load branch. |
 
 ## Relay Strategy
 
 | Item | Brand | Model | BOM Qty | Recommended Qty | Notes |
 |---|---|---:|---:|---:|---|
-| Slim relay | IDEC | RJ2S-CLD-D24 | 17 | 6 if reducing relay usage | Keep relays for AC220V contactor control and spare isolation. |
-| Relay socket | IDEC | SJ2S-07L | 17 | 6 if reducing relay usage | Match relay quantity. |
+| Slim relay | IDEC | RJ2S-CLD-D24 | 17 | TBD | Six relays is only a working assumption. Final quantity depends on direct-drive validation for each DC24V load. |
+| Relay socket | IDEC | SJ2S-07L | 17 | TBD | Match final relay quantity. |
 
 Relay reduction rule:
 
@@ -96,7 +108,8 @@ Relay reduction rule:
 - Servo cable suffix `-HT` versus official Mitsubishi `-H` equivalent.
 - KEYENCE SR-1000W cable and bracket part numbers.
 - Final sensor models for box, mask, origin, and limits.
-- Whether relay quantity will stay at 17 or reduce to 6.
+- Final safety relay / safety controller selection.
+- Whether relay quantity will stay at 17 or reduce after DC24V direct-drive validation.
+- Final 24 VDC fuse branch count and fuse ratings.
 - Static eliminator final nozzle length and air circuit.
 - Vacuum cup sizes and holding force margin.
-
