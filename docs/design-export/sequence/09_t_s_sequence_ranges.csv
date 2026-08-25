@@ -1,0 +1,16 @@
+﻿09_T_S流程分區
+位址/範圍,中文名稱,English,分類,用途
+T10,伺服送電延遲,Servo power-on delay,MAIN/伺服,送電後等待軸卡/驅動器Ready
+T11,STL流程Timeout,STL flow timeout,各流程,每一動作步驟可重設使用
+T12,真空建立Timeout,Vacuum build timeout,真空,取片未達真空OK轉異常
+T13,破真空Timeout,Vacuum release timeout,真空,放片未釋放轉異常
+T14,氣缸動作Timeout,Cylinder timeout,氣缸,磁簧未到位轉異常
+S100~S149,X橫移正向流程,X traverse forward flow,S,儲存盒到上機盒主流程
+S150~S189,X橫移反向流程,X traverse reverse flow,S,上機盒到儲存盒主流程
+S190~S198,X橫移初始化,X traverse initialization,S,回原點後到檢查位/等待位
+S199,X橫移異常監控,X traverse alarm monitor,S,保留異常處理/RETSTL
+S200~S279,X升降取放流程,X lift pick/place flow,S,由X橫移主流程呼叫
+S290~S298,X升降初始化,X lift initialization,S,先升降再橫移，避免干涉
+S299,X升降異常監控,X lift alarm monitor,S,保留異常處理/RETSTL
+S300~S399,Z升降+Barcode,Z lift and barcode,S,Barcode OK後Z下降並通知X回檢查位
+S400~S499,Z旋轉手動調機,Z rotation manual setup,S,自動流程禁入

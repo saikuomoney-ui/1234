@@ -1,0 +1,13 @@
+# 19_Timeout_參數標準
+
+> Exported from `docs/PTC_Mask_Transfer_4Axis_Design_Draft.xlsx`.
+
+| Timeout項目 | D位址 | 預設建議 | 觸發範圍 | 對應警報 | HMI權限 | 設計說明 |
+| --- | --- | --- | --- | --- | --- | --- |
+| X橫移定位 | D6020/軸別覆寫 | 工程待定 | S110/S119/S140/S160/S162/S170/S193 | K150 | Engineer | 依行程距離與速度計算，不寫死K常數。 |
+| X升降定位 | D6020/軸別覆寫 | 工程待定 | S210~S290 | K160 | Engineer | 垂直軸需含煞車釋放時間。 |
+| 夾爪開關 | D6022 | 工程待定 | S211/S222等 | K180 | Engineer | 依磁簧回授。 |
+| 真空建立 | D6024 | 工程待定 | 取片真空ON後 | K200 | Engineer | X0027/X0030/X0031未ON。 |
+| 破真空 | D6026 | 工程待定 | 放片破真空後 | K201 | Engineer | 真空OK未OFF或延時未完成。 |
+| X/Z交握 | D6028 | 工程待定 | 等待M6102/M6103 | K171 | Engineer | 防止stale Done。 |
+| Barcode讀取 | D6422 | 工程待定 | S306/S307 | K181/K182 | Engineer | 依SR-2000W實測通訊時間。 |

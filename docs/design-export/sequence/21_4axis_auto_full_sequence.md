@@ -1,0 +1,21 @@
+# 21_4軸Auto完整流程
+
+> Exported from `docs/PTC_Mask_Transfer_4Axis_Design_Draft.xlsx`.
+
+| Seq | 流程 | 動作 | 條件/回授 | 異常 | M/D/IO | 備註 |
+| --- | --- | --- | --- | --- | --- | --- |
+| 1 | Auto Ready | Safety/Air/FFU/Init/Axis Ready/Material State/功能Enable檢查。 | Barcode Enable ON時M6301必須ON。 | 任一不成立禁止Start | X0000/X0001/M6300/M6301 | Safety/Air/FFU不可Bypass。 |
+| 2 | X取來源 | X橫移到來源，X升降下降，夾爪Close，真空ON。 | 夾爪Close + Vacuum OK，真空位二次確認。 | K180/K200 | S100/S150/S200 | 正向來源Storage；反向來源Load。 |
+| 3 | X移Inspection | X升降上位，X橫移到Inspection，X升降下降。 | X到Inspection且X升降到放/取位。 | K150/K160 | M4151/M435x |  |
+| 4 | 放到Inspection | 破真空，夾爪Open，光罩在席確認。 | X0026 ON。 | K201/K230 | X0026/Y0016 |  |
+| 5 | X離開Clear | X升降上位，X橫移離開檢查干涉區。 | X安全位到位後才SET M6100。 | K171 | M6100 | 保護Z軸不撞。 |
+| 6 | Z定位與Barcode | 左右定位伸出、前後定位伸出、Z到Platform、定位縮回、Z到Barcode。 | X0044/X0046/X0045/X0047/M4551/M4552。 | K180/K240 | S300 | Axis3自動。 |
+| 7 | Barcode Compare | SR-2000W讀取Mask Barcode並比對Storage Barcode。 | M6304 OK；NG進Return。 | K181/K182 | D6300/D6350/D6400 | Barcode OFF則BYPASS記錄。 |
+| 8 | Visual確認 | 若Visual Enable ON，HMI彈窗人工OK/NG。 | M6502 OK；M6503 NG進Return。 | K260 | M6500~M6504/D6500 | Visual OFF則BYPASS。 |
+| 9 | Z回安全 | Z回Home/安全等待位。 | M4550/M4553 ON後SET M6103。 | K240 | M6103 | X才可進檢查位。 |
+| 10 | X取Inspection | X回Inspection，夾爪Close，真空ON，升降上位。 | Vacuum OK + M4350。 | K200/K160 | S131/S163 |  |
+| 11 | PASS目的地放片 | 正向放Load；反向放Storage。 | 放片完成。 | K201 | S141/S171 |  |
+| 12 | NG Return | 正向NG回Storage；反向NG回Load。 | Return放片完成。 | K201 | S380後接X Return | 不得Pass到目的地。 |
+| 13 | Cycle Complete Popup | HMI顯示流程完成，允許開門。 | M6600 ON。 |  | M6600/M6601/Y0027 |  |
+| 14 | 盒蓋關閉後破真空 | Storage Lid/Load Lid Closed後破真空。 | X0052/X0053 ON。 | K201 | Y0030/Y0031 | 兩盒獨立判斷。 |
+| 15 | 取出兩盒完成 | Storage Box Present OFF + Load Box Present OFF。 | X0022 OFF + X0024 OFF。 |  | M6604/D6600 | 回Ready。 |

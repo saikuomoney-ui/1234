@@ -1,0 +1,8 @@
+﻿項目,狀態,設計結論,Coding前注意
+設計定位,PASS_TO_CODING,本版依 20260825 最新驗證建議表整理，作為 PLC/HMI Coding 標準版。,不得再沿用舊版衝突M/D/S定義。
+主要修正,完成,補 Formal I/O Master、Fault Output Matrix、Timeout參數、HMI權限/手動互鎖、Axis Ready/Alarm來源。,這些是GX Works3 Coding前必備。
+2軸流程,PASS,X橫移/X升降正反向、自動、初始化、異常出口已可Coding。,仍需現場確認D441x/D443x實際位置。
+Z升降+Barcode,可Coding,S300保留檢查站氣缸定位、在席、Z平台位、氣缸縮回、Barcode高度、掃碼比對。,SR-2000W通訊格式與Timeout需實測。
+Z旋轉,PASS,僅手動/工程調機，禁止自動流程引用D6412旋轉。,S400入口需M6010+M6400+X0000。
+HMI,可Coding,補Machine Ready、Material Flow、Manual/JOG、Teach、Timeout、Reset、Alarm detail。,Auto Busy中禁止手動與人工料態套用。
+整機Release,HOLD,這是設計文件通過，不是現場Release通過。,FAT/SAT前需完成SR-2000W、Z高度、Tolerance、Safety OFF、Air OFF、真空/煞車策略實測。

@@ -1,0 +1,89 @@
+# 08_D資料參數
+
+> Exported from `docs/PTC_Mask_Transfer_4Axis_Design_Draft.xlsx`.
+
+| 08_D資料參數 |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- |
+| 位址 | 中文名稱 | English | 分類 | 用途 | 備註 |
+| D100 | PLC Scan Time | PLC scan time | 系統 | 由SD520/SD521換算 |  |
+| D1100 | X橫移_流程No | X traverse flow No. | 流程資料 | 目前S步序/狀態 |  |
+| D1200 | X升降_流程No | X lift flow No. | 流程資料 | 目前S步序/狀態 |  |
+| D1300 | Z升降_流程No | Z lift flow No. | 流程資料 | 使用者指定D1300為Z升降 |  |
+| D1400 | Z旋轉_流程No | Z rotation flow No. | 流程資料 | 使用者指定D1400為Z旋轉 | 手動流程用 |
+| D4100 | 軸1_X橫移定位Tolerance | Axis1 positioning tolerance | 伺服參數 | DINT | 工程待定，需依pulse/mm實測。 |
+| D4102 | 軸1_加速時間0 | Axis1 acceleration time 0 | 軸1參數 | 對應Pr.9 |  |
+| D4104 | 軸1_減速時間0 | Axis1 deceleration time 0 | 軸1參數 | 對應Pr.10 |  |
+| D4110 | 軸1_加速時間1 | Axis1 acceleration time 1 | 軸1參數 | 對應Pr.25 |  |
+| D4114 | 軸1_加速時間2 | Axis1 acceleration time 2 | 軸1參數 | 對應Pr.26 |  |
+| D4118 | 軸1_減速時間2 | Axis1 deceleration time 2 | 軸1參數 | 對應Pr.29 |  |
+| D4170 | 軸1_當前位置 | Axis1 current position | 軸1監看 | U1\G2450 real current value |  |
+| D4210 | 軸1_儲存盒位 | Axis1 storage position | 軸1位置 | 定位資料 | 工程輸入 |
+| D4214 | 軸1_檢查位/等待位 | Axis1 inspection/wait position | 軸1位置 | 定位資料 | 初始化完成位置 |
+| D4218 | 軸1_上機盒位 | Axis1 tool box position | 軸1位置 | 定位資料 |  |
+| D4232 | 軸1_儲存盒位誤差 | Axis1 storage position error | 軸1監看 | D4170-D4210並取絕對值 | 用於到位燈/允許條件 |
+| D4234 | 軸1_檢查位誤差 | Axis1 inspection position error | 軸1監看 | D4170-D4214並取絕對值 | 初始化封口用 |
+| D4236 | 軸1_上機盒位誤差 | Axis1 tool position error | 軸1監看 | D4170-D4218並取絕對值 |  |
+| D4300 | 軸2_X升降定位Tolerance | Axis2 positioning tolerance | 伺服參數 | DINT | 工程待定，需依pulse/mm實測。 |
+| D4310 | 軸2_上位 | Axis2 upper position | 軸2位置 | 定位資料 |  |
+| D4314 | 軸2_儲存盒取光罩位 | Axis2 storage pick position | 軸2位置 | 定位資料 |  |
+| D4318 | 軸2_儲存盒放光罩位 | Axis2 storage place position | 軸2位置 | 定位資料 |  |
+| D4322 | 軸2_檢查位取光罩位 | Axis2 inspection pick position | 軸2位置 | 定位資料 |  |
+| D4326 | 軸2_檢查位放光罩位 | Axis2 inspection place position | 軸2位置 | 定位資料 |  |
+| D4330 | 軸2_上機盒取光罩位 | Axis2 tool pick position | 軸2位置 | 定位資料 |  |
+| D4334 | 軸2_上機盒放光罩位 | Axis2 tool place position | 軸2位置 | 定位資料 |  |
+| D4338 | 軸2_真空確認位 | Axis2 vacuum check position | 軸2位置 | 定位資料 | 取片後上升約10mm |
+| D4504 | 軸3_Z升降定位Tolerance | Axis3 Z lift tolerance | Z升降 | DINT | 工程待定，定位誤差上限。 |
+| D4704 | 軸4_Z旋轉定位Tolerance | Axis4 Z rotation tolerance | Z旋轉 | DINT | 工程待定，角度到位容許誤差。 |
+| D6100 | 光罩/流程狀態 | Mask/process state | 狀態 | 0未知 1儲存盒 2手臂 3檢查站 4Z處理 5上機盒 | 儲存盒/上機盒光罩存在由真空與狀態推導 |
+| D6412 | Barcode建議角度 | Barcode suggested angle | Barcode/HMI | INT | 只供HMI顯示與手動調機參考，自動流程禁止使用。 |
+| D4510 | 軸3_Z升降_Barcode掃描高度 | Axis3 barcode scan height | Z升降 | DINT | 到SR-2000W掃描高度。 |
+| D4512 | 軸3_Z升降_Home/安全等待位 | Axis3 home safe wait position | Z升降 | DINT | 允許X進入/移動的安全高度。 |
+| D4514 | 軸3_Z升降_Platform平台位 | Axis3 platform position | Z升降 | DINT | 抬高光罩後縮回定位氣缸的位置。 |
+| D6300 | 工單標準Barcode字串起始 | Work order barcode string start | Barcode | STRING/WORD | SR-2000W比對標準資料起始。 |
+| D6350 | 光罩讀取Barcode字串起始 | Read barcode string start | Barcode | STRING/WORD | SR-2000W讀取結果起始。 |
+| D6400 | Barcode讀取狀態 | Barcode read status | Barcode | INT | 0 idle、1 reading、2 OK、3 NG、4 timeout。 |
+| D6402 | Barcode NG原因碼 | Barcode NG reason code | Barcode | INT | 比對失敗/無讀取/通訊逾時等。 |
+| D6404 | Barcode NG原因碼 | Barcode NG reason code | Barcode結果 | 1無讀碼 2格式錯 3字串不符 4Timeout 5人工失敗 |  |
+| D6406 | Barcode重掃次數 | Barcode rescan count | Barcode結果 | NG後允許重掃計數 | 預設最多1次 |
+| D6408 | Barcode重掃結果 | Barcode rescan result | Barcode結果 | 0未重掃 1重掃OK 2重掃NG |  |
+| D6410 | Barcode判斷邊別 | Barcode detected side | Barcode結果 | 0未知 1上 2右 3下 4左 | 依條碼規則或視覺資料判斷 |
+| D6420 | Barcode重掃結果 | Barcode rescan result | Barcode | INT | 0未執行、1 OK、2 NG。 |
+| D6422 | Barcode通訊Timeout設定 | Barcode timeout setting | Barcode | INT | 單位依程式定義。 |
+| D1102 | X橫移_目前實際位置No | X traverse current position No. | 流程資料 | INT | 0未知、1儲存盒位、2檢查位、3上機盒位。 |
+| D1104 | X橫移_目的位置No | X traverse target position No. | 流程資料 | INT | X橫移命令目標位置，避免D1102語意混用。 |
+| D4410 | 軸2_上位目標 | Axis2 upper target | 軸2定位 | DINT | X升降上位。 |
+| D4412 | 軸2_儲存盒取位目標 | Axis2 storage pick target | 軸2定位 | DINT | 依實測。 |
+| D4414 | 軸2_儲存盒放位目標 | Axis2 storage place target | 軸2定位 | DINT | 依實測。 |
+| D4416 | 軸2_檢查位取位目標 | Axis2 inspection pick target | 軸2定位 | DINT | 依實測。 |
+| D4418 | 軸2_檢查位放位目標 | Axis2 inspection place target | 軸2定位 | DINT | 依實測。 |
+| D4420 | 軸2_上機盒取位目標 | Axis2 load pick target | 軸2定位 | DINT | 依實測。 |
+| D4422 | 軸2_上機盒放位目標 | Axis2 load place target | 軸2定位 | DINT | 依實測。 |
+| D4424 | 軸2_共用真空確認位目標 | Axis2 common vacuum check target | 軸2定位 | DINT | 取片後上升約10mm位置；若各位置不同，需拆成三組高度。 |
+| D4432 | 軸2_上位誤差 | Axis2 upper position error | 軸2誤差 | DINT | ABS(目前位置-D4410)。 |
+| D4434 | 軸2_儲存盒取位誤差 | Axis2 storage pick error | 軸2誤差 | DINT | ABS(目前位置-D4412)。 |
+| D4436 | 軸2_儲存盒放位誤差 | Axis2 storage place error | 軸2誤差 | DINT | ABS(目前位置-D4414)。 |
+| D4438 | 軸2_檢查位取位誤差 | Axis2 inspection pick error | 軸2誤差 | DINT | ABS(目前位置-D4416)。 |
+| D4440 | 軸2_檢查位放位誤差 | Axis2 inspection place error | 軸2誤差 | DINT | ABS(目前位置-D4418)。 |
+| D4442 | 軸2_上機盒取位誤差 | Axis2 load pick error | 軸2誤差 | DINT | ABS(目前位置-D4420)。 |
+| D4444 | 軸2_上機盒放位誤差 | Axis2 load place error | 軸2誤差 | DINT | ABS(目前位置-D4422)。 |
+| D4446 | 軸2_真空確認位誤差 | Axis2 vacuum check error | 軸2誤差 | DINT | ABS(目前位置-D4424)。 |
+| D6004 | 目前警報碼 | Current alarm code | Alarm | INT | HMI Alarm Detail顯示。 |
+| D6006 | 目前異常Step | Current fault step | Alarm | INT | 異常發生時保存S/D6401。 |
+| D6008 | 目前異常軸號 | Current fault axis | Alarm | INT | 0共用、1軸1、2軸2、3軸3、4軸4。 |
+| D6010 | 目前異常料態 | Current fault material state | Alarm | INT | 保存D6100。 |
+| D6020 | Move Timeout設定 | Move timeout setting | Timeout | INT | 所有定位逾時基準，可依軸另外覆寫。 |
+| D6022 | Grip Timeout設定 | Grip timeout setting | Timeout | INT | 夾爪開/關到位逾時。 |
+| D6024 | Vacuum Build Timeout設定 | Vacuum build timeout setting | Timeout | INT | 真空建立逾時。 |
+| D6026 | Vacuum Release Timeout設定 | Vacuum release timeout setting | Timeout | INT | 破真空逾時。 |
+| D6028 | Z Handshake Timeout設定 | Z handshake timeout setting | Timeout | INT | 等待M6102/M6103逾時。 |
+| D6101 | 人工料態設定值 | Manual material state set value | Material | INT | 需Engineer權限、M6030 Apply、二次確認，Auto Busy禁止。 |
+| D4551 | 軸3_Platform位誤差 | Axis3 platform error | Z升降誤差 | DINT | ABS(目前位置-D4514)。 |
+| D4552 | 軸3_Barcode位誤差 | Axis3 barcode position error | Z升降誤差 | DINT | ABS(目前位置-D4510)。 |
+| D4553 | 軸3_Home/安全位誤差 | Axis3 home safe error | Z升降誤差 | DINT | ABS(目前位置-D4512)。 |
+| D4710 | 軸4_0度位置 | Axis4 0 degree position | Z旋轉 | DINT | 手動調機用。 |
+| D4712 | 軸4_90度位置 | Axis4 90 degree position | Z旋轉 | DINT | 手動調機用。 |
+| D4714 | 軸4_180度位置 | Axis4 180 degree position | Z旋轉 | DINT | 手動調機用。 |
+| D4716 | 軸4_270度位置 | Axis4 270 degree position | Z旋轉 | DINT | 手動調機用。 |
+| D6500 | Visual結果 | Visual inspection result | 目視檢查 | INT | 0未判定、1 OK、2 NG、3 BYPASS。 |
+| D6502 | Visual NG原因碼 | Visual NG reason code | 目視檢查 | INT | 人工選擇或輸入NG原因。 |
+| D6600 | Cycle完成狀態 | Cycle complete status | 流程完成 | INT | 0未完成、1可開門、2等盒蓋關閉、3破真空中、4等取盒、5完成。 |

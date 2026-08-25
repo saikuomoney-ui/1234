@@ -1,0 +1,17 @@
+# 00_4軸新設計總覽
+
+> Exported from `docs/PTC_Mask_Transfer_4Axis_Design_Draft.xlsx`.
+
+| 項目 | 軸/功能 | 狀態 | 設計結論 | 資料來源/銜接 | Coding前注意 |
+| --- | --- | --- | --- | --- | --- |
+| 設計版本 | 4軸完整需求 | PASS_TO_CODING_DRAFT | 由既有PLC/HMI標準版複製為新手稿，並整合20260825 4軸完整需求建議表。 | 舊標準版全部保留；本表新增/修正4軸設計。 | 這是新設計手稿，不是現場Release。 |
+| Axis1 | X橫移 | PASS | Auto + Manual/Teach。自動負責Storage/Inspection/Load三位置移動。 | 沿用M4100~M4299、D4100~D4299、S100/S150/S190。 | S119/S161不得提早SET M6100。 |
+| Axis2 | X升降 | PASS | Auto + Manual/Teach。負責取/放/真空確認/上位。 | 沿用M4300~M4499、D4300~D4499、S200~S299。 | M4330只作真空確認位命令；JOG用M4340/M4341。 |
+| Axis3 | Z升降 | 可Coding | Auto + Manual/Teach。自動負責Platform、Barcode Scan、Home/Safe位。 | 新增M4500~M4699、D4500~D4699、S300~S399。 | Z高度與Tolerance需實測。 |
+| Axis4 | Z旋轉 | 手動限定 | Manual/Teach only。Auto禁止使用Axis4旋轉命令。 | 新增/整理M4700~M4899、D4700~D4899、S400~S499。 | 0/90/180/270只給工程調機；回原點後必須移到0位。 |
+| Auto軸數 | Axis1+Axis2+Axis3 | PASS | 自動流程只使用3軸；Axis4在Auto中鎖住。 | M6010/M6400才允許Axis4手動。 | 程式內不得由Barcode OK觸發Axis4。 |
+| Z檢查站定位 | 左右+前後定位 | 新增 | 四支定位氣缸回授合併為4個DI，兩組DO控制。 | X0044~X0047、Y0025~Y0026。 | 兩支同組氣缸需全部到位才算完成。 |
+| Barcode | SR-2000W | 可Coding | Barcode Enable=ON時，Storage Barcode必須Valid才允許Auto Start；Mask Barcode比對NG走Return。 | D6300/D6350/D6400/D642x。 | 1000筆History建議用HMI Ring Buffer/Data Logging。 |
+| Visual | 人工目視確認 | 新增 | Visual Enable=ON時，Barcode OK後HMI彈窗Hold，人工OK才繼續；NG走Return。 | M6500~M6515、D6500~D6519。 | Visual OFF時Bypass，但需HMI顯示。 |
+| Cycle Complete | 完成取盒流程 | 新增 | 流程完成後HMI提示允許開門、盒蓋關閉後破真空，取出兩盒後Cycle Complete。 | X0022/X0024與新增盒蓋DI、Y0030/Y0031。 | 安全門Unlock只送請求，硬體安全仍由安全迴路決定。 |
+| Release Gate | 整機 | HOLD | 文件可進PLC/HMI Coding；現場Release仍需實測。 | 保留16_驗收_Release_Gate。 | SR-2000W、Visual操作、Z定位、真空/安全策略需實機封口。 |

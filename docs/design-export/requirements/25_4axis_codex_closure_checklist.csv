@@ -1,0 +1,12 @@
+﻿No,等級,項目,判定,設計處理,位置
+1,P0,2軸版升級為4軸完整定義,完成,Axis1~4 M/D/S/HMI架構已列。,00_4軸新設計總覽
+2,P0,Auto只允許Axis1/2/3,完成,Axis4明確手動限定，Auto禁止。,13_流程_Z旋轉手動_S400
+3,P0,Axis3 Z升降Servo Device Map,完成,M4517/M4518/M452x/M455x與D451x/D455x。,06_M軸3_Z升降 / 08_D資料參數
+4,P0,Axis4 Manual Device Map,完成,M4717/M4718/M472x/M473x/M475x與D471x。,07_M軸4_Z旋轉 / 13_流程_Z旋轉手動_S400
+5,P0,Z定位氣缸4DI/2DO,完成,X0044~X0047、Y0025~Y0026正式配置。,02_XY點位表 / 01_IO新增與配置
+6,P0,Z完整Sequence,完成,LR定位、FB定位、Mask Presence、Platform、縮回、Barcode、Home。,12_流程_Z升降_Barcode_S300
+7,P0,Barcode Enable與Storage Valid,完成,M6300/M6301與D6300起始區。,03_M共用_HMI_Barcode / 23_Barcode_History設計
+8,P0,Visual Enable與人工判定,完成,M6500~M6504、D6500/D6502。,22_功能Enable矩陣 / 24_HMI_4軸畫面
+9,P0,Cycle Complete與取盒,完成,M6600~M6604、X0052/X0053、Y0030/Y0031。,21_4軸Auto完整流程
+10,P1,Barcode History 1000筆,設計完成/實作待HMI,建議用HMI Ring Buffer/Data Logging，不讓PLC搬移1000筆字串。,23_Barcode_History設計
+11,P1,現場Release,HOLD,仍需SR-2000W、Z高度、Tolerance、氣缸、真空、安全策略實測。,16_驗收_Release_Gate

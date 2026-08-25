@@ -1,0 +1,13 @@
+# 13_流程_Z旋轉手動_S400
+
+> Exported from `docs/PTC_Mask_Transfer_4Axis_Design_Draft.xlsx`.
+
+| Step | 名稱 | 進入條件 | 主要動作 | 完成條件 | 異常/Timeout | M/D/備註 |
+| --- | --- | --- | --- | --- | --- | --- |
+| S400 | Z旋轉手動入口 | M6010工程/手動 + M6400 Z旋轉調機 + X0000安全OK + Auto Busy OFF | 允許Axis4 JOG/Teach/0/90/180/270；自動流程禁止進入。 | 等待手動命令 | Safety OFF轉S489 | Auto不得使用Axis4定位命令。 |
+| S410 | 回原點 | HMI原點命令 | Axis4 OPR。 | 原點復歸完成 | K250 | 完成後必須進S411移0度。 |
+| S411 | 移0度 | S410完成或HMI 0度 | SET M4720，位置D4710。 | M4750 ON | K250 | 0位作正式等待角度。 |
+| S412 | 移90度 | HMI 90度 | SET M4721，位置D4712。 | M4751 ON | K250 | 手動測試。 |
+| S413 | 移180度 | HMI 180度 | SET M4722，位置D4714。 | M4752 ON | K250 | 手動測試。 |
+| S414 | 移270度 | HMI 270度 | SET M4723，位置D4716。 | M4753 ON | K250 | 手動測試。 |
+| S489 | Z旋轉異常 | Alarm/Timeout/Safety OFF | 停止Axis4新命令。 | HMI復歸 |  | 不影響Auto主流程，除非安全NG。 |

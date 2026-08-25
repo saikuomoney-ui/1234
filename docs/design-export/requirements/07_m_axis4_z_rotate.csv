@@ -1,0 +1,26 @@
+﻿07_M軸4_Z旋轉
+位址,中文名稱,English,分類,用途,備註
+M4700,軸4_Z旋轉_狀態_速度控制中標誌,Axis4 Z rotation speed control active,軸4_Z旋轉,軸卡狀態
+M4701,軸4_Z旋轉_狀態_速度/位置切換鎖存,Axis4 Z rotation speed/position latch,軸4_Z旋轉,軸卡狀態
+M4702,軸4_Z旋轉_狀態_指令到位標誌,Axis4 Z rotation command in position,軸4_Z旋轉,軸卡狀態
+M4703,軸4_Z旋轉_狀態_原點回歸請求,Axis4 Z rotation home return request state,軸4_Z旋轉,軸卡狀態
+M4704,軸4_Z旋轉_狀態_原點回歸完成,Axis4 Z rotation home return complete,軸4_Z旋轉,軸卡狀態
+M4709,軸4_Z旋轉_狀態_軸報警檢測,Axis4 Z rotation axis alarm detected,軸4_Z旋轉,軸卡狀態
+M4712,軸4_Z旋轉_狀態_M代碼ON,Axis4 Z rotation M-code ON,軸4_Z旋轉,軸卡狀態
+M4713,軸4_Z旋轉_狀態_錯誤檢測,Axis4 Z rotation error detected,軸4_Z旋轉,軸卡狀態
+M4714,軸4_Z旋轉_狀態_啟動完成,Axis4 Z rotation start complete,軸4_Z旋轉,軸卡狀態
+M4715,軸4_Z旋轉_狀態_定位完成,Axis4 Z rotation positioning complete,軸4_Z旋轉,軸卡狀態
+M4716,軸4_Z旋轉_初始化,Axis4 Z rotation initialize,軸4_Z旋轉,MAIN初始化觸發
+M4727,軸4_Z旋轉_BUSY,Axis4 Z rotation BUSY,軸4_Z旋轉,U1\G3150 bit狀態
+M4731,軸4_Z旋轉_JOG-,Axis4 jog minus,手動調機,HMI手動。
+M4732,軸4_Z旋轉_JOG+,Axis4 jog plus,手動調機,HMI手動。
+M4720,軸4_Z旋轉_0度命令,Axis4 0 degree command,手動定位,工程手動移到0度。,回原點後必須執行。
+M4721,軸4_Z旋轉_90度命令,Axis4 90 degree command,手動定位,工程手動測試。
+M4722,軸4_Z旋轉_180度命令,Axis4 180 degree command,手動定位,工程手動測試。
+M4723,軸4_Z旋轉_270度命令,Axis4 270 degree command,手動定位,工程手動測試。
+M4750,軸4_0度到位,Axis4 0 degree complete,到位,Busy OFF + InPosition + Error<=D4704。
+M4751,軸4_90度到位,Axis4 90 degree complete,到位,Busy OFF + InPosition + Error<=D4704。
+M4752,軸4_180度到位,Axis4 180 degree complete,到位,Busy OFF + InPosition + Error<=D4704。
+M4753,軸4_270度到位,Axis4 270 degree complete,到位,Busy OFF + InPosition + Error<=D4704。
+M4717,軸4_Z旋轉_Ready,Axis4 Z rotation ready,狀態,手動模式下可操作。,Auto不得引用。
+M4718,軸4_Z旋轉_Alarm,Axis4 Z rotation alarm,狀態,軸卡/伺服/定位/Timeout異常。
