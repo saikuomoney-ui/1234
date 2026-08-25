@@ -2,16 +2,17 @@
 
 > Exported from `docs/PTC_Mask_Transfer_4Axis_Design_Draft.xlsx`.
 
-| No | 等級 | 項目 | 判定 | 設計處理 | 位置 |
+| No | 優先級 | 確認/修改事項 | CODEX結果 | 理由/替代方案 | 實際修改位置 |
 | --- | --- | --- | --- | --- | --- |
-| 1 | P0 | 2軸版升級為4軸完整定義 | 完成 | Axis1~4 M/D/S/HMI架構已列。 | 00_4軸新設計總覽 |
-| 2 | P0 | Auto只允許Axis1/2/3 | 完成 | Axis4明確手動限定，Auto禁止。 | 13_流程_Z旋轉手動_S400 |
-| 3 | P0 | Axis3 Z升降Servo Device Map | 完成 | M4517/M4518/M452x/M455x與D451x/D455x。 | 06_M軸3_Z升降 / 08_D資料參數 |
-| 4 | P0 | Axis4 Manual Device Map | 完成 | M4717/M4718/M472x/M473x/M475x與D471x。 | 07_M軸4_Z旋轉 / 13_流程_Z旋轉手動_S400 |
-| 5 | P0 | Z定位氣缸4DI/2DO | 完成 | X0044~X0047、Y0025~Y0026正式配置。 | 02_XY點位表 / 01_IO新增與配置 |
-| 6 | P0 | Z完整Sequence | 完成 | LR定位、FB定位、Mask Presence、Platform、縮回、Barcode、Home。 | 12_流程_Z升降_Barcode_S300 |
-| 7 | P0 | Barcode Enable與Storage Valid | 完成 | M6300/M6301與D6300起始區。 | 03_M共用_HMI_Barcode / 23_Barcode_History設計 |
-| 8 | P0 | Visual Enable與人工判定 | 完成 | M6500~M6504、D6500/D6502。 | 22_功能Enable矩陣 / 24_HMI_4軸畫面 |
-| 9 | P0 | Cycle Complete與取盒 | 完成 | M6600~M6604、X0052/X0053、Y0030/Y0031。 | 21_4軸Auto完整流程 |
-| 10 | P1 | Barcode History 1000筆 | 設計完成/實作待HMI | 建議用HMI Ring Buffer/Data Logging，不讓PLC搬移1000筆字串。 | 23_Barcode_History設計 |
-| 11 | P1 | 現場Release | HOLD | 仍需SR-2000W、Z高度、Tolerance、氣缸、真空、安全策略實測。 | 16_驗收_Release_Gate |
+| 1 | P0 | 正式X/Y點位不可任意新增 | 完成 | 02_XY點位表只保留BOM/PLC已定義點位 | 02_XY點位表 |
+| 2 | P0 | Z定位採4DI+4DO雙線圈版 | 完成 | X0016/X0017/X0020/X0021 + Y0011/Y0012/Y0013/Y0014 | 01_IO補充_雙線圈版 |
+| 3 | P0 | 廢止X0044~X0047、Y0025/Y0026舊方案 | 完成 | 避免PLC/HMI/電路圖引用不同地址 | 01_IO補充_雙線圈版、26_IO不可新增與待確認 |
+| 4 | P0 | S301/S305左右雙線圈互斥 | 完成 | Y0011與Y0012不可同時ON | 12_流程_Z升降_Barcode_S300 |
+| 5 | P0 | S302/S305前後雙線圈互斥 | 完成 | Y0013與Y0014不可同時ON | 12_流程_Z升降_Barcode_S300 |
+| 6 | P0 | Auto總流程改用正式Z定位點位 | 完成 | 21表使用X0016/X0020/X0017/X0021 | 21_4軸Auto完整流程 |
+| 7 | P0 | Axis4 Z旋轉Auto禁止 | 完成 | Axis4只允許工程/手動調機 | 13_流程_Z旋轉手動_S400 |
+| 8 | P0 | Barcode型號與BOM統一 | 待確認 | 若BOM為SR-1000W，文件以SR-1000W；若採購改SR-2000W須同步BOM | 12_S300、23_Barcode_History、BOM |
+| 9 | P1 | S304啟動前再確認定位與光罩 | 完成 | X0016+X0020+X0026+Axis3 Ready | 12_流程_Z升降_Barcode_S300 |
+| 10 | P1 | S310固定回Home | 完成 | 完成條件只認M4550 Home Complete，不以M4553替代 | 12_流程_Z升降_Barcode_S300 |
+| 11 | P1 | Fault Output Matrix補雙線圈故障策略 | 完成 | 異常時禁止同組雙線圈同時ON，安全/氣壓異常依停機策略處理 | 18_Fault_Output_Matrix |
+| 12 | P1 | 現場Release | HOLD | 需實測SR通訊、Z高度、Tolerance、Safety Stop、真空/煞車策略 | 16_驗收_Release_Gate |
