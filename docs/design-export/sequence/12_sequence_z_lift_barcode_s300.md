@@ -2,19 +2,19 @@
 
 > Exported from `docs/PTC_Mask_Transfer_4Axis_Design_Draft.xlsx`.
 
-| Step | 名稱 | 進入條件 | 主要動作 | 完成條件 | 異常/Timeout | M/D/IO |
-| --- | --- | --- | --- | --- | --- | --- |
-| S300 | Z/Barcode入口 | M6101 ON + M6100 ON + X0000安全OK + X0001氣壓OK | SET M6102；RST M6103；確認X已離開檢查位干涉區。 | 進S301 | K171 | M6100/M6101/M6102 |
-| S301 | 左右定位伸出 | S300 | Y0025 ON，左右定位氣缸伸出。 | X0044 ON | K180 | LR Extend Complete |
-| S302 | 前後定位伸出 | X0044 ON | Y0026 ON，前後定位氣缸伸出。 | X0046 ON | K180 | FB Extend Complete |
-| S303 | 光罩在席確認 | X0044 ON + X0046 ON | 確認檢查站光罩在席。 | X0026 ON | K230 | Inspection Mask Present |
-| S304 | Z升到Platform位 | X0026 ON | SET M4521，Axis3到D4514。 | M4551 ON | K240 | D4514/M4551 |
-| S305 | 定位氣缸縮回 | M4551 ON | Y0025 OFF、Y0026 OFF。 | X0045 ON + X0047 ON | K180 | LR/FB Retract Complete |
-| S306 | Z到Barcode掃描位 | X0045/X0047 ON | SET M4522，Axis3到D4510。 | M4552 ON | K240 | D4510/M4552 |
-| S307 | Barcode讀取 | M4552 ON | 若M6300 ON，SET M6302觸發SR-2000W；若OFF，SET M6306 Bypass。 | M6303 ON或M6306 ON | K181 | D6300/D6350/D6400/D6422 |
-| S308 | Barcode比對 | M6303 ON | Mask Barcode與Storage Barcode比對。 | M6304 OK進S309；M6305 NG進S380 | K182 | D6402/D6412 |
-| S309 | Visual人工確認 | M6304 ON | 若M6500 ON，SET M6501 HMI彈窗Hold；若OFF，SET M6504 Bypass。 | M6502 OK或M6504 ON；M6503 NG進S380 | K260 | D6500/D6502 |
-| S310 | Z回Home/安全等待位 | Barcode/Visual OK | SET M4520，Axis3回D4512。 | M4550或M4553 ON | K240 | Z Safe For X |
-| S311 | 通知X可回檢查位 | Z安全位完成 | SET M6103；RST M6102。 | RETSTL |  | X流程接續S131/S163 |
-| S380 | NG Return判定 | Barcode NG或Visual NG | 依方向決定Return：正向回Storage、反向回Load。 | 交給X流程Return sequence | K182/K260 | 不得直接PASS。 |
-| S389 | Z/Barcode異常 | 任一停機異常 | RST M6102；不SET M6103；寫D6004/D6006/D6008。 | HMI復歸後回初始化 |  |  |
+| Step | 動作 | 執行輸出/命令 | 完成條件 | 異常/Timeout | 備註 |
+| --- | --- | --- | --- | --- | --- |
+| S300 | Z/Barcode流程入口 | SET M6102；RST M6103 | X0000安全OK、X0001氣壓OK、X0036 FFU Run、X0037 OFF | NG->S389 | Auto只允許Axis1/2/3；Axis4不參與 |
+| S301 | 檢查站左右定位伸出 | Y0011 ON、Y0012 OFF | X0016 ON | Timeout K310 | 使用既有正式點位，不新增Y0025/X0044 |
+| S302 | 檢查站前後定位伸出 | Y0013 ON、Y0014 OFF | X0020 ON | Timeout K311 | 使用既有正式點位，不新增Y0026/X0046 |
+| S303 | 確認光罩在檢查站 | 無 | X0026 ON | K312 光罩不在席 | Z升起前必要條件 |
+| S304 | Z升降到平台位，將光罩抬高 | SET M4521；目標D4514 | M4551 ON + Busy OFF + 誤差<=D4504 | K320 | 平台位高度現場實測 |
+| S305 | 檢查站左右/前後定位縮回 | Y0011 OFF、Y0012 ON、Y0013 OFF、Y0014 ON | X0017 ON 且 X0021 ON | K321 | 定位縮回後才可進Barcode高度 |
+| S306 | Z升降到Barcode掃描位 | SET M4522；目標D4510 | M4552 ON + Busy OFF + 誤差<=D4504 | K322 | Barcode高度現場實測 |
+| S307 | Barcode讀取 | M6300 ON時SET M6302；M6300 OFF則SET M6306 | M6303 ON 或 M6306 ON | K330 | KEYENCE SR-2000W；通訊格式需實測 |
+| S308 | Barcode比對 | PLC/HMI比對D6300~D6349與D6350~D6399 | M6304 OK->S309；M6305 NG->S380 | K331 | Barcode OFF 記錄BYPASS |
+| S309 | 人工目視檢查選配 | M6500 ON時SET M6501；OFF則SET M6504 | M6502 OK/M6504->S310；M6503 NG->S380 | K340 | HMI彈窗，不需要操作紀錄 |
+| S310 | Z升降回安全/原點等待位 | SET M4520；目標D4512 | M4550或M4553 ON + Busy OFF | K350 | 完成後通知X回檢查位 |
+| S311 | Z/Barcode完成交握 | SET M6103；RST M6102 | 主流程收到M6103 |  | M6103=Z/Barcode流程完成且Z升降在安全位 |
+| S380 | NG返回來源盒 | 依方向回儲存盒或上機盒 | X軸完成回放 | 必要時HMI確認 | 不得自動轉Axis4 |
+| S389 | Z/Barcode異常監控 | SET Alarm Code；RST M6102 | HMI排除後回初始化/安全位 |  | 停機或警告依Alarm表 |

@@ -17,7 +17,7 @@ The Excel workbook remains the master file; these Markdown and CSV files make th
 | --- | --- | --- | --- |
 | 00_設計標準總覽 | [00_design_standard_overview.md](requirements/00_design_standard_overview.md) | [00_design_standard_overview.csv](requirements/00_design_standard_overview.csv) | 10 |
 | 01_位址分區標準 | [01_address_range_standard.md](requirements/01_address_range_standard.md) | [01_address_range_standard.csv](requirements/01_address_range_standard.csv) | 28 |
-| 02_XY點位表 | [02_xy_io.md](io-list/02_xy_io.md) | [02_xy_io.csv](io-list/02_xy_io.csv) | 75 |
+| 02_XY點位表 | [02_xy_io.md](io-list/02_xy_io.md) | [02_xy_io.csv](io-list/02_xy_io.csv) | 62 |
 | 03_M共用_HMI_Barcode | [03_m_common_hmi_barcode.md](requirements/03_m_common_hmi_barcode.md) | [03_m_common_hmi_barcode.csv](requirements/03_m_common_hmi_barcode.csv) | 86 |
 | 04_M軸1_X橫移 | [04_m_axis1_x_traverse.md](requirements/04_m_axis1_x_traverse.md) | [04_m_axis1_x_traverse.csv](requirements/04_m_axis1_x_traverse.csv) | 24 |
 | 05_M軸2_X升降 | [05_m_axis2_x_lift.md](requirements/05_m_axis2_x_lift.md) | [05_m_axis2_x_lift.csv](requirements/05_m_axis2_x_lift.csv) | 41 |
@@ -38,10 +38,11 @@ The Excel workbook remains the master file; these Markdown and CSV files make th
 | 18_Fault_Output_Matrix | [18_fault_output_matrix.md](requirements/18_fault_output_matrix.md) | [18_fault_output_matrix.csv](requirements/18_fault_output_matrix.csv) | 12 |
 | 19_Timeout_參數標準 | [19_timeout_parameter_standard.md](requirements/19_timeout_parameter_standard.md) | [19_timeout_parameter_standard.csv](requirements/19_timeout_parameter_standard.csv) | 8 |
 | 20_HMI權限與互鎖 | [20_hmi_permission_interlock.md](requirements/20_hmi_permission_interlock.md) | [20_hmi_permission_interlock.csv](requirements/20_hmi_permission_interlock.csv) | 12 |
-| 00_4軸新設計總覽 | [00_4axis_new_design_overview.md](requirements/00_4axis_new_design_overview.md) | [00_4axis_new_design_overview.csv](requirements/00_4axis_new_design_overview.csv) | 12 |
+| 00_4軸新設計總覽 | [00_4axis_new_design_overview.md](requirements/00_4axis_new_design_overview.md) | [00_4axis_new_design_overview.csv](requirements/00_4axis_new_design_overview.csv) | 11 |
 | 01_IO新增與配置 | [01_io_additions.md](io-list/01_io_additions.md) | [01_io_additions.csv](io-list/01_io_additions.csv) | 14 |
 | 21_4軸Auto完整流程 | [21_4axis_auto_full_sequence.md](sequence/21_4axis_auto_full_sequence.md) | [21_4axis_auto_full_sequence.csv](sequence/21_4axis_auto_full_sequence.csv) | 16 |
 | 22_功能Enable矩陣 | [22_feature_enable_matrix.md](requirements/22_feature_enable_matrix.md) | [22_feature_enable_matrix.csv](requirements/22_feature_enable_matrix.csv) | 7 |
 | 23_Barcode_History設計 | [23_barcode_history_design.md](requirements/23_barcode_history_design.md) | [23_barcode_history_design.csv](requirements/23_barcode_history_design.csv) | 8 |
 | 24_HMI_4軸畫面 | [24_hmi_4axis_screens.md](requirements/24_hmi_4axis_screens.md) | [24_hmi_4axis_screens.csv](requirements/24_hmi_4axis_screens.csv) | 15 |
 | 25_4軸CODEX封口清單 | [25_4axis_codex_closure_checklist.md](requirements/25_4axis_codex_closure_checklist.md) | [25_4axis_codex_closure_checklist.csv](requirements/25_4axis_codex_closure_checklist.csv) | 12 |
+| 26_IO不可新增與待確認 | [26_io_fixed_no_extra_pending.md](io-list/26_io_fixed_no_extra_pending.md) | [26_io_fixed_no_extra_pending.csv](io-list/26_io_fixed_no_extra_pending.csv) | 6 |
