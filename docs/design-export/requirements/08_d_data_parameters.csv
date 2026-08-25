@@ -31,11 +31,11 @@ D4504,軸3_Z升降定位Tolerance,Axis3 Z lift tolerance,Z升降,DINT,工程待�
 D4704,軸4_Z旋轉定位Tolerance,Axis4 Z rotation tolerance,Z旋轉,DINT,工程待定，角度到位容許誤差。
 D6100,光罩/流程狀態,Mask/process state,狀態,0未知 1儲存盒 2手臂 3檢查站 4Z處理 5上機盒,儲存盒/上機盒光罩存在由真空與狀態推導
 D6412,Barcode建議角度,Barcode suggested angle,Barcode/HMI,INT,只供HMI顯示與手動調機參考，自動流程禁止使用。
-D4510,軸3_Z升降_Barcode掃描高度,Axis3 barcode scan height,Z升降,DINT,到SR-2000W掃描高度。
+D4510,軸3_Z升降_Barcode掃描高度,Axis3 barcode scan height,Z升降,DINT,到Barcode Reader(依BOM實際採購型號)掃描高度。
 D4512,軸3_Z升降_Home/安全等待位,Axis3 home safe wait position,Z升降,DINT,允許X進入/移動的安全高度。
 D4514,軸3_Z升降_Platform平台位,Axis3 platform position,Z升降,DINT,抬高光罩後縮回定位氣缸的位置。
-D6300,工單標準Barcode字串起始,Work order barcode string start,Barcode,STRING/WORD,SR-2000W比對標準資料起始。
-D6350,光罩讀取Barcode字串起始,Read barcode string start,Barcode,STRING/WORD,SR-2000W讀取結果起始。
+D6300,工單標準Barcode字串起始,Work order barcode string start,Barcode,STRING/WORD,Barcode Reader(依BOM實際採購型號)比對標準資料起始。
+D6350,光罩讀取Barcode字串起始,Read barcode string start,Barcode,STRING/WORD,Barcode Reader(依BOM實際採購型號)讀取結果起始。
 D6400,Barcode讀取狀態,Barcode read status,Barcode,INT,0 idle、1 reading、2 OK、3 NG、4 timeout。
 D6402,Barcode NG原因碼,Barcode NG reason code,Barcode,INT,比對失敗/無讀取/通訊逾時等。
 D6404,Barcode NG原因碼,Barcode NG reason code,Barcode結果,1無讀碼 2格式錯 3字串不符 4Timeout 5人工失敗

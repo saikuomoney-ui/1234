@@ -10,4 +10,4 @@
 | 真空建立 | D6024 | 工程待定 | 取片真空ON後 | K200 | Engineer | X0027/X0030/X0031未ON。 |
 | 破真空 | D6026 | 工程待定 | 放片破真空後 | K201 | Engineer | 真空OK未OFF或延時未完成。 |
 | X/Z交握 | D6028 | 工程待定 | 等待M6102/M6103 | K171 | Engineer | 防止stale Done。 |
-| Barcode讀取 | D6422 | 工程待定 | S306/S307 | K181/K182 | Engineer | 依SR-2000W實測通訊時間。 |
+| Barcode讀取 | D6422 | 工程待定 | S306/S307 | K181/K182 | Engineer | 依Barcode Reader(依BOM實際採購型號)實測通訊時間。 |

@@ -8,4 +8,4 @@ X軸夾爪/真空,使用既有X0014/X0015/X0027與Y0007/Y0010/Y0015/Y0016,02_XY�
 Axis3 Z升降,Auto可用，配合Barcode與檢查站定位,12_S300,D4510 Barcode高度、D4514平台位、D4504容許誤差
 Axis4 Z旋轉,只允許工程/手動調機，不進Auto,13_S400,0/90/180/270測試；Auto不得命令Axis4
 HMI,要有Auto、4軸手動調機、Barcode、Visual、Alarm、I/O監看,14/24_HMI,手動調機須受安全/工程模式限制
-Release,可進PLC/HMI Coding；現場Release仍HOLD,16_驗收,SR-2000W、Z高度、Tolerance、Safety Stop需實測
+Release,可進PLC/HMI Coding；現場Release仍HOLD,16_驗收,Barcode Reader(依BOM實際採購型號)、Z高度、Tolerance、Safety Stop需實測

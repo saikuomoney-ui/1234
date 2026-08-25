@@ -11,8 +11,9 @@
 | 5 | P0 | S302/S305前後雙線圈互斥 | 完成 | Y0013與Y0014不可同時ON | 12_流程_Z升降_Barcode_S300 |
 | 6 | P0 | Auto總流程改用正式Z定位點位 | 完成 | 21表使用X0016/X0020/X0017/X0021 | 21_4軸Auto完整流程 |
 | 7 | P0 | Axis4 Z旋轉Auto禁止 | 完成 | Axis4只允許工程/手動調機 | 13_流程_Z旋轉手動_S400 |
-| 8 | P0 | Barcode型號與BOM統一 | 待確認 | 若BOM為SR-1000W，文件以SR-1000W；若採購改SR-2000W須同步BOM | 12_S300、23_Barcode_History、BOM |
+| 8 | P0 | Barcode型號與BOM統一 | 待確認 | 若BOM為Barcode Reader(依BOM實際採購型號)，文件以Barcode Reader(依BOM實際採購型號)；若採購改Barcode Reader(依BOM實際採購型號)須同步BOM | 12_S300、23_Barcode_History、BOM |
 | 9 | P1 | S304啟動前再確認定位與光罩 | 完成 | X0016+X0020+X0026+Axis3 Ready | 12_流程_Z升降_Barcode_S300 |
 | 10 | P1 | S310固定回Home | 完成 | 完成條件只認M4550 Home Complete，不以M4553替代 | 12_流程_Z升降_Barcode_S300 |
 | 11 | P1 | Fault Output Matrix補雙線圈故障策略 | 完成 | 異常時禁止同組雙線圈同時ON，安全/氣壓異常依停機策略處理 | 18_Fault_Output_Matrix |
 | 12 | P1 | 現場Release | HOLD | 需實測SR通訊、Z高度、Tolerance、Safety Stop、真空/煞車策略 | 16_驗收_Release_Gate |
+| 13 | P0 | Barcode型號一致性 | 完成/待採購封口 | 全設計文字改為Barcode Reader(依BOM實際採購型號)；採購確定Barcode Reader(依BOM實際採購型號)或Barcode Reader(依BOM實際採購型號)後再全檔替換成唯一型號。 | BOM/採購單 |

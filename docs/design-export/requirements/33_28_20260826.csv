@@ -1,0 +1,11 @@
+﻿項目,驗證結果,處理方式,設計位置,剩餘現場確認
+正式X/Y不可新增,PASS,02_XY點位表維持已確認點位；X0044~X0047/Y0025/Y0026只允許出現在Deprecated/不可新增說明。,02_XY點位表、01_IO新增與配置、26_IO不可新增與待確認
+HMI Z定位診斷,PASS,改用X0016/X0017/X0020/X0021 + Y0011/Y0012/Y0013/Y0014。,24_HMI_4軸畫面
+Z定位雙線圈,PASS,Y0011/Y0012、Y0013/Y0014互斥；伸出/縮回都有回授。,12_流程_Z升降_Barcode_S300、21_4軸Auto完整流程、27_雙線圈控制標準
+Barcode型號一致性,HOLD,全檔統一寫Barcode Reader(依BOM實際採購型號)，不硬寫Barcode Reader(依BOM實際採購型號)或Barcode Reader(依BOM實際採購型號)。,08_D資料參數、12_S300、14_HMI、16_Release、23_History,採購/BOM封口後全檔替換唯一型號。
+Cycle Complete-儲存盒,HOLD,先確認X0023 OFF作為儲存盒關蓋等效條件，再允許Y0020破真空。,21_4軸Auto完整流程、15_異常警報標準、24_HMI_4軸畫面,確認X0023 OFF是否等同關蓋。
+Cycle Complete-上機盒,HOLD,先確認X0025 OFF作為上機盒關蓋等效條件，再允許Y0022破真空。,21_4軸Auto完整流程、15_異常警報標準、24_HMI_4軸畫面,確認X0025 OFF是否等同關蓋。
+Cycle Complete-取出兩盒,PASS/HOLD,破真空完成後等待X0022 OFF AND X0024 OFF才Cycle End。,21_4軸Auto完整流程,確認在席Sensor OFF反應時間。
+門鎖策略,HOLD,PLC/HMI只做提示與工程Bypass流程，不新增門鎖I/O。,20_HMI權限與互鎖、21_4軸Auto完整流程,安全迴路/門鎖硬體圖需現場封口。
+Ionizer Enable,HOLD,Enable時需Y0023停止輸出OFF、X0033異常OFF、X0032檢查訊號正常。,22_功能Enable矩陣、15_異常警報標準,確認DTY-ELK01 X0032檢查訊號正常邏輯。
+最終判定,PASS_TO_CODING / RELEASE_HOLD,可進PLC/HMI程式設計與單機測試；整機Release仍需實機驗證。,16_驗收_Release_Gate,Barcode、Tolerance、Z高度、Safety Stop、真空/煞車策略。
