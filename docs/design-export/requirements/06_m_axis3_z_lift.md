@@ -25,7 +25,5 @@
 | M4550 | 軸3_Home到位 | Axis3 home complete | 到位 | Busy OFF + InPosition + Error<=D4504。 |  |
 | M4551 | 軸3_Platform位到位 | Axis3 platform position complete | 到位 | 對D4514/D4551。 |  |
 | M4552 | 軸3_Barcode位到位 | Axis3 barcode scan position complete | 到位 | 對D4510/D4552。 |  |
-| M4517 | 軸3_Z升降_Ready | Axis3 Z lift ready | 狀態 | Safety OK + MC送電 + Servo ON + Alarm OFF + 軸卡Ready。 |  |
-| M4518 | 軸3_Z升降_Alarm | Axis3 Z lift alarm | 狀態 | 軸卡/伺服/定位/Timeout異常。 |  |
 | M4530 | 軸3_Z升降_STOP | Axis3 stop | 命令 | 停止Z升降定位/JOG。 |  |
-| M4553 | 軸3_安全等待位到位 | Axis3 safe wait position complete | 到位 | 對D4512/D4553。 |  |
+| M4553 | Z SafeForX複合安全旗標 | Z safe for X composite | 複合狀態 | M4550 Home + X0017 + X0021 + M4518 OFF + M4527 OFF | X橫移/進檢查位前的Z安全條件。 |

@@ -87,3 +87,24 @@
 | D6500 | Visual結果 | Visual inspection result | 目視檢查 | INT | 0未判定、1 OK、2 NG、3 BYPASS。 |
 | D6502 | Visual NG原因碼 | Visual NG reason code | 目視檢查 | INT | 人工選擇或輸入NG原因。 |
 | D6600 | Cycle完成狀態 | Cycle complete status | 流程完成 | INT | 0未完成、1可開門、2等盒蓋關閉、3破真空中、4等取盒、5完成。 |
+| D4120 | 軸1_Auto Speed | Axis1 auto speed | 軸1參數 | DINT | 工程設定；需上下限。 |
+| D4122 | 軸1_JOG Speed | Axis1 jog speed | 軸1參數 | DINT | 維修低速限制用。 |
+| D4140 | 軸1_Soft Limit - | Axis1 soft limit minus | 軸1參數 | DINT | 現場Teach。 |
+| D4142 | 軸1_Soft Limit + | Axis1 soft limit plus | 軸1參數 | DINT | 現場Teach。 |
+| D4340 | 軸2_Auto Speed | Axis2 auto speed | 軸2參數 | DINT | 工程設定；需上下限。 |
+| D4342 | 軸2_JOG Speed | Axis2 jog speed | 軸2參數 | DINT | 維修低速限制用。 |
+| D4344 | 軸2_Brake Release Delay | Axis2 brake release delay | 軸2參數 | INT ms | 垂直軸煞車釋放延時。 |
+| D4346 | 軸2_Accel | Axis2 acceleration | 軸2參數 | INT | 工程設定。 |
+| D4348 | 軸2_Decel | Axis2 deceleration | 軸2參數 | INT | 工程設定。 |
+| D4560 | 軸3_Auto Speed | Axis3 auto speed | 軸3參數 | DINT | 工程設定；需上下限。 |
+| D4562 | 軸3_JOG Speed | Axis3 jog speed | 軸3參數 | DINT | 維修低速限制用。 |
+| D4564 | 軸3_Brake Release Delay | Axis3 brake release delay | 軸3參數 | INT ms | 垂直軸煞車釋放延時。 |
+| D4566 | 軸3_Accel | Axis3 acceleration | 軸3參數 | INT | 工程設定。 |
+| D4568 | 軸3_Decel | Axis3 deceleration | 軸3參數 | INT | 工程設定。 |
+| D4720 | 軸4_Rotate Speed | Axis4 rotate speed | 軸4參數 | DINT | 手動旋轉速度。 |
+| D4722 | 軸4_JOG Speed | Axis4 jog speed | 軸4參數 | DINT | 手動JOG速度。 |
+| D4724 | 軸4_Accel | Axis4 acceleration | 軸4參數 | INT | 工程設定。 |
+| D4726 | 軸4_Decel | Axis4 deceleration | 軸4參數 | INT | 工程設定。 |
+| D6030 | Z定位汽缸伸出Timeout | Z locator extend timeout | Timeout | INT | K310/K311使用。 |
+| D6032 | Z定位汽缸縮回Timeout | Z locator retract timeout | Timeout | INT | K321使用。 |
+| D6034 | Visual人工等待Timeout | Visual operator wait timeout | Timeout | INT | 0=不逾時；非0則K340。 |

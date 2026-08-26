@@ -4,7 +4,7 @@
 
 | No | 流程段 | 動作說明 | 使用M/D/Y/X | 完成條件 | 異常/Timeout | 備註 |
 | --- | --- | --- | --- | --- | --- | --- |
-| 1 | Auto Ready | 確認Safety/Air/FFU/初始化/Barcode條件 | X0000/X0001/X0036/X0037/M1125/M1225/M1425 | Ready成立 | 不成立禁止啟動 | Barcode Enable ON時需Storage Barcode Valid |
+| 1 | Auto Ready | 確認Safety/Air/FFU/初始化/Barcode條件 | X0000/X0001/X0036/X0037/M1125/M1225/M1325 | Ready成立 | 不成立禁止啟動 | Barcode Enable ON時需Storage Barcode Valid |
 | 2 | X取片前置 | X橫移到來源盒；X升降到取片位；夾爪關；真空ON | Axis1/Axis2/Y0010/Y0015 | X0015+X0027 | 真空NG->S189/S299 | 來源依方向=儲存盒或上機盒 |
 | 3 | X取片真空確認 | X升降上升10mm至真空確認位，確認吸住 | Axis2/M4330 | X0027持續ON | 真空掉落停機 | 若三位置高度不同，D43xx需現場Teach |
 | 4 | X搬到檢查位 | X升降上位後，X橫移到檢查位 | Axis1 | M4151 ON | Axis Alarm停機 | 光罩不得與Z干涉 |

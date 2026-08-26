@@ -1,0 +1,20 @@
+# 17_CODEX審查封口
+
+> Generated from PTC_Mask_Transfer_4Axis_Design_Draft.xlsx. Source workbook is the controlled Excel design draft.
+
+| 等級 | 問題 | 原判定 | 本次修正 | 狀態 | 位置 |
+| --- | --- | --- | --- | --- | --- |
+| P0 | M6100 X Clear For Z 太早SET | S119/S161與移動命令同時SET，Z可能誤動作。 | 改為X到檢查/安全等待位、Busy OFF、InPosition、誤差OK後才SET。 | 完成 | 10_流程_X橫移_S100_S150 |
+| P0 | M1226/M1227/M1228未流程化 | S200 Busy/Done/Alarm不一致。 | 補成每個S2xx入口SET Busy、成功SET Done、異常SET Alarm。 | 完成 | 03_M共用_HMI_Barcode / 11_流程_X升降_S200 |
+| P0 | M4330/JOG衝突 | M4330曾被誤當JOG+。 | M4330固定為軸2共用真空確認位命令；軸2JOG改M4340/M4341。 | 完成 | 05_M軸2_X升降 / 14_HMI畫面標準 |
+| P0 | M4350未正式定義 | 主流程使用但表內不清楚。 | 補M4350~M4357為軸2到位旗標。 | 完成 | 05_M軸2_X升降 |
+| P0 | Barcode D區不足 | 標準/讀取/結果/NG/重掃資料不足。 | 補D6300~D6422。 | 完成 | 08_D資料參數 |
+| P0 | S300流程太簡化 | 缺氣缸定位、在席、平台位、縮回、掃描高度。 | 補完整Z/Barcode機構順序。 | 完成 | 12_流程_Z升降_Barcode_S300 |
+| P0 | Z旋轉自動流程誤用 | 曾由Barcode OK進S400。 | S400改為只限工程/手動調機，自動流程禁用。 | 完成 | 13_流程_Z旋轉手動_S400 |
+| P0 | Formal I/O Master不足 | 缺Normal State/Active Level/NPN-PNP/COM/Terminal/Cable/Ref。 | 02_XY點位表重整為正式I/O Master欄位。 | 完成 | 02_XY點位表 |
+| P0 | Fault Output Matrix不足 | 異常時不可一律關閉所有輸出。 | 新增18_Fault_Output_Matrix，定義真空/煞車/MC/輸出策略。 | 完成 | 18_Fault_Output_Matrix |
+| P0 | Timeout未參數化 | Move/Grip/Vacuum/Release/Z timeout缺統一D參數。 | 新增D6020~D6028與19_Timeout_參數標準。 | 完成 | 08_D資料參數 / 19_Timeout_參數標準 |
+| P0 | HMI Manual/JOG互鎖不足 | Auto Busy時可能誤操作手動。 | 新增M6200/M6201與20_HMI權限與互鎖。 | 完成 | 03_M共用_HMI_Barcode / 20_HMI權限與互鎖 |
+| P0 | HMI Reset需拆分 | Alarm/Servo/Safety Reset需分離。 | M6040/M6041/M6042已列入，Y0000只做安全復歸瞬時輸出。 | 完成 | 03_M共用_HMI_Barcode / 20_HMI權限與互鎖 |
+| P1 | Auto Stop與Abort需拆分 | M6004語意不足。 | M6004=Normal Stop，M6008=Abort中止。 | 完成 | 03_M共用_HMI_Barcode / 20_HMI權限與互鎖 |
+| P1 | Material State人工修正需權限 | D6101可被誤改。 | D6101需Engineer、M6030 Apply、M6031 Confirm、Auto Busy禁止。 | 完成 | 08_D資料參數 / 20_HMI權限與互鎖 |
